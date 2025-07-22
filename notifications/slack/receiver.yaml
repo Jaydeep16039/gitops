@@ -4,13 +4,9 @@ metadata:
   name: gitops-receiver
   namespace: flux-system
 spec:
-  type: webhook
-  events:
-    - push
+  type: generic
   resources:
     - apiVersion: kustomize.toolkit.fluxcd.io/v1
       kind: Kustomization
       name: dev-cluster
       namespace: flux-system
-  secretRef:
-    name: slack-webhook-secret
