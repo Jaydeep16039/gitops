@@ -1,0 +1,4 @@
+resources:
+  - ../../base/hello-world
+patchesStrategicMerge:
+  - patch.yaml
