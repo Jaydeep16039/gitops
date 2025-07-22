@@ -6,9 +6,10 @@ metadata:
 spec:
   type: webhook
   events:
+    - commit
     - apply
-    - kustomization.sync
-    - helmrelease.ready
+    - kustomization.available
   resources:
     - kind: Kustomization
       name: dev-cluster
+      namespace: flux-system
