@@ -10,3 +10,5 @@ spec:
       kind: Kustomization
       name: dev-cluster
       namespace: flux-system
+  secretRef:
+    name: slack-webhook-secret
