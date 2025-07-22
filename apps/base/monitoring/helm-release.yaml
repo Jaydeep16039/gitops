@@ -22,6 +22,8 @@ spec:
           enabled: true
           label: grafana_dashboard
           folder: CloudNativePG
+      dashboardsConfigMaps:
+        - grafana-dashboard-cloudnativepg
     prometheus:
       prometheusSpec:
         serviceMonitorSelectorNilUsesHelmValues: false

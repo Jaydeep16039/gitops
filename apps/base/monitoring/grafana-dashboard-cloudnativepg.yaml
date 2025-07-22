@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-cloudnativepg
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  cloudnativepg-dashboard.json: |
+{{ .Files.Get "apps/base/monitoring/dashboards/cloudnativepg-20417.json" | indent 4 }}
