@@ -1,0 +1,14 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Receiver
+metadata:
+  name: gitops-receiver
+  namespace: flux-system
+spec:
+  type: webhook
+  events:
+    - apply
+    - kustomization.sync
+    - helmrelease.ready
+  resources:
+    - kind: Kustomization
+      name: dev-cluster

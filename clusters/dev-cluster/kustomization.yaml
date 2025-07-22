@@ -7,3 +7,5 @@ resources:
   - ../../apps/overlays/dev/hello-world
   - ../../infrastructure/helm-repos/cloudnativepg-repo.yaml
   - ../../infrastructure/helm-repos/prometheus-repo.yaml
+  - ../../secrets
+  - ../../notifications/slack
