@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: phoenix-app
-  namespace: phoenix
 spec:
   replicas: 1
   selector:
