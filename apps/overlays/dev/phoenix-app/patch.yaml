@@ -1,17 +1,8 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
   name: phoenix-app
+  namespace: phoenix
 spec:
-  replicas: 2
-  # template:
-  #   spec:
-  #     containers:
-  #       - name: phoenix
-  #         resources:
-  #           requests:
-  #             cpu: "100m"
-  #             memory: "128Mi"
-  #           limits:
-  #             cpu: "250m"
-  #             memory: "256Mi"
+  values:
+    replicaCount: 3
