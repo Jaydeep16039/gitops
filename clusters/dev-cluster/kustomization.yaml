@@ -14,5 +14,4 @@ resources:
   - ../../secrets
   - ../../notifications/slack
 
-  - ../../apps/base/phoenix-app
   - ../../apps/overlays/dev/phoenix-app
