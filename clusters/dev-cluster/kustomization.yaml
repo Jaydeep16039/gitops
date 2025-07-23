@@ -4,9 +4,15 @@ kind: Kustomization
 resources:
   - ../../apps/base/cloudnativepg
   -  ../../apps/base/postgres-cluster
+
   - ../../apps/base/monitoring
   - ../../apps/overlays/dev/hello-world
+
   - ../../infrastructure/helm-repos/cloudnativepg-repo.yaml
   - ../../infrastructure/helm-repos/prometheus-repo.yaml
+
   - ../../secrets
   - ../../notifications/slack
+
+  - ../../apps/base/phoenix-app
+  - ../../apps/overlays/dev/phoenix-app
