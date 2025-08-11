@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
@@ -8,25 +8,22 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "56.x"
+      version: "73.6.0"
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
   install:
     createNamespace: true
+    crds: Create
+  upgrade:
+    crds: CreateReplace
   values:
     grafana:
-      sidecar:
-        dashboards:
-          enabled: true
-          label: grafana_dashboard
-          folder: CloudNativePG
-          labelValue: "1"
-          searchNamespace: ALL
-      dashboardsConfigMaps:
-        - grafana-dashboard-cloudnativepg
+      defaultDashboardsEnabled: false  # avoid large annotation dashboard failures; import dashboards via ConfigMaps/sidecar instead
+      adminPassword: "changeme"
+      service:
+        type: ClusterIP
     prometheus:
       prometheusSpec:
-        serviceMonitorSelectorNilUsesHelmValues: false
-        serviceMonitorSelector: {}
+        retention: "7d"

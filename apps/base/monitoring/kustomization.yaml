@@ -1,9 +1,8 @@
-# apps/base/monitoring/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - namespace.yaml
   - helm-release.yaml
-  - grafana-dashboard-cloudnativepg.yaml
-  - alert-if-pod-not-ready.yaml
+  - grafana-dashboard-cloudnativepg-configmap.yaml
   - alertmanager-config.yaml
+  - alert-if-pod-not-ready.yaml
