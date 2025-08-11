@@ -20,10 +20,16 @@ spec:
     crds: CreateReplace
   values:
     grafana:
-      defaultDashboardsEnabled: false  # avoid large annotation dashboard failures; import dashboards via ConfigMaps/sidecar instead
-      adminPassword: "changeme"
-      service:
-        type: ClusterIP
+      sidecar:
+        dashboards:
+          enabled: true
+          label: grafana_dashboard
+          folder: CloudNativePG
+          labelValue: "1"
+          searchNamespace: ALL
+      dashboardsConfigMaps:
+        - grafana-dashboard-cloudnativepg
     prometheus:
       prometheusSpec:
-        retention: "7d"
+        serviceMonitorSelectorNilUsesHelmValues: false
+        serviceMonitorSelector: {}
